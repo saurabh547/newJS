@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>locations</title>
+    <style>
+      .container {
+        height: 95vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn {
+        margin: 15px;
+        background-color: aqua;
+        /* border: 2px solid black; */
+        border: none;
+        border-radius: 14px;
+        padding: 15px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="location"></div>
+      <div id="alti"></div>
+      <button onclick="getLocation()" class="btn">get Location</button>
+    </div>
+  </body>
+  <script>
+    function getLocation() {
+      navigator.geolocation.getCurrentPosition((position) => {
+        // console.log("longitude", position.coords.longitude);
+        // console.log("altitude", position.coords.altitude);
+        let longitude = position.coords.longitude;
+        let altitude = position.coords.altitude;
+        document.getElementById("location").textContent = longitude;
+        document.getElementById("alti").textContent = altitude;
+      });
+    }
+  </script>
+</html>

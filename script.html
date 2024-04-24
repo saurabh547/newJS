@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        border: 2px solid black;
+        padding: 5px 20px 5px 20px;
+        border-radius: 14px;
+        margin: 50px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: rgba(193, 80, 193, 0.2);
+        color: #fff;
+      }
+      p {
+        background-color: rgb(233, 135, 135);
+        margin: 50px;
+        width: 200px;
+        height: 200px;
+        border-radius: 12px;
+        align-items: center;
+        text-align: center;
+        font-size: 21px;
+        display: flex;
+        justify-content: center;
+        transition: all 0.2s ease-in-out;
+      }
+      p:hover {
+        /* scale: 1.2; */
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="conatiner">
+      <p id="demo"></p>
+      <form action="">
+        <label for="name">enter Name</label>
+        <input type="text" name="" id="name" />
+        <button type="submit" id="btn">click</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

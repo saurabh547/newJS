@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <img id="img" src="" alt="" />
+    <button id="btn">click</button>
+  </body>
+  <script>
+    // fetch("https://dummyjson.com/products/1")
+    fetch("https://api.github.com/users/saurabh547")
+      .then((res) => res.json())
+      .then((json) => {
+        // console.log(json);
+        document.querySelector("#btn").addEventListener("click", function () {
+          console.log(json);
+          document.getElementById("demo").textContent = JSON.stringify(json);
+          document.getElementById("img").src = json.avatar_url;
+        });
+      })
+      .catch((error) => {
+        console.log("error in fetching data", error);
+      });
+  </script>
+</html>

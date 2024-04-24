@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Styling for the form container */
+      form {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      /* Styling for labels */
+      label {
+        font-weight: bold;
+      }
+
+      /* Styling for input fields */
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box; /* ensures padding is included in width */
+      }
+
+      /* Styling for submit button */
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      /* Styling for input fields when focused */
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="password"]:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+
+      /* Styling for input fields when there's an error */
+      input:invalid {
+        border-color: #dc3545;
+      }
+
+      /* Styling for submit button when hovered */
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Styling for submit button when focused */
+      input[type="submit"]:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <form id="submision-form" action="/signup" method="post">
+      <label for="username">Username:</label><br />
+      <input type="text" id="username" name="username" required /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required /><br />
+
+      <label for="password">Password:</label><br />
+      <input type="password" id="password" name="password" required /><br />
+
+      <label for="confirm_password">Confirm Password:</label><br />
+      <input
+        type="password"
+        id="confirm_password"
+        name="confirm_password"
+        required
+      /><br />
+      <span id="error"></span>
+
+      <input type="submit" value="Sign Up" />
+    </form>
+    <script>
+      // function passwordValidation() {
+      //   const password = document.querySelector("#password").value;
+      //   const conPassword = document.querySelector("#confirm_password").value;
+
+      //   if (password !== conPassword) {
+      //     let errorMessage = "Password Not matching";
+      //     document.getElementById("error").innerHTML = errorMessage;
+
+      //     return false;
+      //   }
+      //   return true;
+      // }
+
+      // document
+      //   .getElementById("submision-form")
+      //   .addEventListener("submit", function (e) {
+      //     if (!passwordValidation()) {
+      //       e.preventDefault();
+      //     }
+      //   });
+
+      // optimize approach
+      function formSubmission() {
+        const password = document.querySelector("#password");
+        const con_password = document.querySelector("#confirm_password");
+        const errorElement = document.querySelector("#error");
+
+        const pass = password.value;
+        const conpass = con_password.value;
+
+        if (pass !== conpass) {
+          errorElement.textContent = "password not matching";
+          return false;
+        } else {
+          errorElement.textContent = "";
+          return true;
+        }
+      }
+
+      document
+        .getElementById("submision-form")
+        .addEventListener("submit", function (e) {
+          if (!formSubmission()) {
+            e.preventDefault();
+          }
+        });
+    </script>
+  </body>
+</html>
