@@ -10,3 +10,4 @@ btn.addEventListener("click", function update(e) {
   //   console.log(input.value);
   demo.textContent = `your name : - ${usertIN}`;
 });
+
